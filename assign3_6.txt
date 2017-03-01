@@ -1,0 +1,64 @@
+1.If 7TB is the available disk space per node (9 disks with 1 TB, 2 disk for operating system etc.
+were excluded.). Assuming initial data size is 600 TB. How will you estimate the number of data
+nodes (n)?
+
+
+Sol:
+
+	n = H/d
+
+	  = c*r*s/(1-i)*d
+
+i.e H -- Storage of hadoop
+
+    d -- disk space availability
+
+    r -- replication factor
+
+    c -- avarage compression ratio
+
+    i -- intermediate factor
+
+    s -- data that has to sent to hadoop
+
+
+Here the given data is :
+
+	H = 600TB
+	
+	d = 7tb
+
+	n = 600/7
+
+	  = 85
+
+
+The solution is 85
+
+
+-------------------------------------------------------------------------------------------
+2.Imagine that you are uploading a file of 500MB into HDFS.100MB of data is successfully
+uploaded into HDFS and another client wants to read the uploaded data while the upload is still in
+progress. What will happen in such a scenario, will the 100 MB of data that is uploaded will it be
+displayed?
+
+
+Sol:
+
+	Yes. 100 mb uploaded data will be displayed .
+
+	the default size of a bloack is 128 mb. 
+
+	considering that the block size is 100 mb so we have 5 block in total.
+
+	Since the data is split across the data nodes, the first mb will be processed by the namenode
+	to the first data block. after successful writing to first block and acknowledge from data node 
+	the namenode performs operations on other data nodes. 
+
+	So client can access the first block as it has been successfully.
+
+
+
+
+
+
